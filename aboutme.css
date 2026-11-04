@@ -712,3 +712,96 @@ body {
   }
 }
 
+/* ===================================================
+   RESPONSIVE GRID & MEDIA ATURAN UNTUK ANIME/CHAR/WAIFU
+   =================================================== */
+
+/* 1. Pengaturan Dasar Media (Image & Video)
+   Memastikan media tidak meluber keluar dari kartu */
+.grid-gallery .media-card img,
+.grid-gallery .media-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memotong rapi sesuai rasio kartu tanpa merusak proporsi */
+    display: block;
+    border-radius: 12px;
+}
+
+/* 2. Ukuran Kartu (Media Card)
+   Batasi tinggi maksimum agar tidak terlalu besar di Desktop */
+.grid-gallery .media-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 1 / 1; /* Membuat bentuk kartu kotak sempurna */
+    max-height: 250px;   /* Mencegah ukuran terlalu raksasa di layar besar */
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 3. Layout Grid Responsif (Default untuk HP/Layar Kecil)
+   Membuat layout otomatis membagi kolom sesuai sisa ruang */
+.grid-gallery {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Grid khusus gambar poster (Section Anime) */
+.grid-posters {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.grid-posters .media-card {
+    aspect-ratio: 2 / 3; /* Rasio standar poster anime */
+    max-height: 280px;
+}
+
+/* Grid khusus karakter dan waifu (Bentuk Kotak) */
+.grid-square {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+}
+
+/* Grid khusus hobi */
+.grid-hobi {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ===================================================
+   MEDIA QUERIES (PENYESUAIAN BERDASARKAN PERANGKAT)
+   =================================================== */
+
+/* Tampilan Ponsel / HP (Maksimal Lebar 600px) */
+@media screen and (max-width: 600px) {
+    .grid-gallery {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    /* Karakter & Waifu di HP: 3-4 kolom kecil per baris */
+    .grid-square {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
+
+    .grid-posters {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    }
+
+    /* Penyesuaian teks nama karakter di HP */
+    .char-name {
+        font-size: 0.75rem;
+        padding: 4px;
+    }
+}
+
+/* Tampilan Tablet & Laptop/Desktop (Lebar Minimal 768px) */
+@media screen and (min-width: 768px) {
+    .grid-square {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    .grid-posters {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
