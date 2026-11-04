@@ -661,7 +661,7 @@ body {
     font-family: monospace;
 }
 
-/* Tampilan default untuk HP (Mobile First atau layar kecil) */
+/* HP */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -670,44 +670,42 @@ body {
 }
 
 .container {
-  width: 100%; /* Lebar penuh di HP */
+  width: 100%; /* Lebar penuh HP */
 }
 
-/* Tampilan untuk Komputer / PC (Layar dengan lebar minimal 768px ke atas) */
+/* Komputer / PC*/
 @media (min-width: 768px) {
   body {
     padding: 20px;
   }
   
   .container {
-    width: 80%; /* Lebar mengecil/terpusat di PC */
+    width: 80%; /*PC */
     margin: 0 auto;
     background-color: white;
   }
 }
-/* --- TAMPILAN DEFAULT (Contoh: untuk Layar Laptop/Desktop besar) --- */
+/*dekstop*/
 body {
   background-color: white;
   font-size: 18px;
 }
 .container {
-  display: flex; /* Menyamping jika di layar lebar */
+  display: flex;
 }
 
-/* --- TAMPILAN MENYESUAIKAN PERANGKAT (Media Query) --- */
-
-/* Jika layar berukuran maksimal 768px (seperti Tablet atau HP) */
+/* tablet atau hp*/
 @media (max-width: 768px) {
   body {
-    background-color: lightblue; /* Warna latar berubah */
-    font-size: 16px; /* Font mengecil */
+    background-color: lightblue;
+    font-size: 16px; 
   }
   .container {
-    flex-direction: column; /* Mengubah susunan menu jadi vertikal ke bawah */
+    flex-direction: column;
   }
 }
 
-/* Jika layar berukuran maksimal 480px (khusus Smartphone kecil) */
+/* hp */
 @media (max-width: 480px) {
   body {
     font-size: 14px;
