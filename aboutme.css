@@ -685,3 +685,32 @@ body {
     background-color: white;
   }
 }
+/* --- TAMPILAN DEFAULT (Contoh: untuk Layar Laptop/Desktop besar) --- */
+body {
+  background-color: white;
+  font-size: 18px;
+}
+.container {
+  display: flex; /* Menyamping jika di layar lebar */
+}
+
+/* --- TAMPILAN MENYESUAIKAN PERANGKAT (Media Query) --- */
+
+/* Jika layar berukuran maksimal 768px (seperti Tablet atau HP) */
+@media (max-width: 768px) {
+  body {
+    background-color: lightblue; /* Warna latar berubah */
+    font-size: 16px; /* Font mengecil */
+  }
+  .container {
+    flex-direction: column; /* Mengubah susunan menu jadi vertikal ke bawah */
+  }
+}
+
+/* Jika layar berukuran maksimal 480px (khusus Smartphone kecil) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}
+
