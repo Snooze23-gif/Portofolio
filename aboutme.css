@@ -661,6 +661,341 @@ body {
     font-family: monospace;
 }
 
+/* Tampilan default untuk HP (Mobile First atau layar kecil) */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 10px;
+}
+
+.container {
+  width: 100%; /* Lebar penuh di HP */
+}
+
+/* Tampilan untuk Komputer / PC (Layar dengan lebar minimal 768px ke atas) */
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  
+  .container {
+    width: 80%; /* Lebar mengecil/terpusat di PC */
+    margin: 0 auto;
+    background-color: white;
+  }
+}
+
+/* ==========================================
+   STYLE MODAL / BUBBLE BOX
+   ========================================== */
+.modal-overlay {
+    display: none; /* Sembunyi secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Kartu Popup */
+.modal-card {
+    background: #1e1e2f;
+    color: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 550px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    animation: popupAnim 0.3s ease-out;
+}
+
+@keyframes popupAnim {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+.close-btn:hover { color: #fff; }
+
+.modal-subtitle {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* Grid Hero */
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+.hero-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #000;
+    cursor: pointer;
+}
+
+.hero-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+/* Video tersembunyi awal */
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* Efek Hover: Sembunyikan Gambar, Tampilkan Video */
+.hero-item:hover img {
+    opacity: 0;
+}
+
+.hero-item:hover .hero-video {
+    opacity: 1;
+}
+
+.hero-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 6px 0;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Styling Modal Layang (Bubble Box) */
+.modal-overlay {
+    display: none; /* Awalnya tersembunyi */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Efek gelap melayang menutupi layar */
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-card {
+    background: #181824;
+    color: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+.modal-subtitle {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 16px;
+}
+
+/* Grid Kartu Hero di Dalam Modal */
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.hero-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: #000;
+    cursor: pointer;
+}
+
+.hero-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; /* Tersembunyi sebelum di-hover */
+}
+
+/* Transisi Gambar ke Video saat Hover */
+.hero-item:hover .hero-img {
+    opacity: 0;
+}
+
+.hero-item:hover .hero-video {
+    opacity: 1;
+}
+
+.hero-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 0.75rem;
+    padding: 4px 0;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px 5%;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 0 20px;
+        gap: 24px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-avatar-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cute-title {
+        font-size: 32px;
+    }
+
+    .section-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+/* ==========================================================================
+   GAME ACCOUNT SECTION
+   ========================================================================== */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-purple-light);
+    box-shadow: 0 10px 24px var(--accent-glow);
+}
+
+.game-img-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+}
+
+.game-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.game-info {
+    padding: 16px 20px;
+    text-align: left;
+}
+
+.game-info h3 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.game-nickname {
+    color: var(--accent-purple-light);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.game-id {
+    display: block;
+    color: var(--text-muted);
+    font-size: 12.5px;
+    font-family: monospace;
+}
+
 /* HP */
 body {
   font-family: Arial, sans-serif;
@@ -693,6 +1028,9 @@ body {
 .container {
   display: flex;
 }
+/* ==========================================================================
+   8. RESPONSIVE FOR MOBILE
+   ========================================================================== */
 
 /* tablet atau hp*/
 @media (max-width: 768px) {
